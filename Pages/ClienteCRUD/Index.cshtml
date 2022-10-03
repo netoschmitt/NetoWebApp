@@ -1,0 +1,60 @@
+﻿@page
+@model NetoWebApp.Pages.ClienteCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Novo Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cliente) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.IdCliente">Alterar</a> 
+                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.IdCliente">Detalhes</a>
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.IdCliente">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
