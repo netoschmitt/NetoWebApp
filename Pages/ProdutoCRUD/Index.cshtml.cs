@@ -23,9 +23,9 @@ namespace NetoWebApp.Pages.ProdutoCRUD
 
         public async Task OnGetAsync()
         {
-            if (_context.Produto != null)
+            if (_context.Produtos != null)
             {
-                Produto = await _context.Produto.ToListAsync();
+                Produto = await _context.Produtos.ToListAsync();
             }
         }
     }

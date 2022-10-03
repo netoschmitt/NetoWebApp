@@ -22,7 +22,7 @@ namespace NetoWebApp.Pages
 
         public async Task OnGetAsync()
         {
-            Produtos = await _context.Produto.ToListAsync<Produto>();
+            Produtos = await _context.Produtos.ToListAsync<Produto>();
         }
     }
 }

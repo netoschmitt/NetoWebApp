@@ -10,8 +10,8 @@ namespace NetoWebApp.Data
         {
         }
 
-        public DbSet<Produto> Produto { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
 
-        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
     }
 }

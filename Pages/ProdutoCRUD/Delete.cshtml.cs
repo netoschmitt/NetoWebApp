@@ -24,12 +24,12 @@ namespace NetoWebApp.Pages.ProdutoCRUD
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Produto == null)
+            if (id == null || _context.Produtos == null)
             {
                 return NotFound();
             }
 
-            var produto = await _context.Produto.FirstOrDefaultAsync(m => m.IdProduto == id);
+            var produto = await _context.Produtos.FirstOrDefaultAsync(m => m.IdProduto == id);
 
             if (produto == null)
             {
@@ -44,16 +44,16 @@ namespace NetoWebApp.Pages.ProdutoCRUD
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Produto == null)
+            if (id == null || _context.Produtos == null)
             {
                 return NotFound();
             }
-            var produto = await _context.Produto.FindAsync(id);
+            var produto = await _context.Produtos.FindAsync(id);
 
             if (produto != null)
             {
                 Produto = produto;
-                _context.Produto.Remove(Produto);
+                _context.Produtos.Remove(Produto);
                 await _context.SaveChangesAsync();
             }
 

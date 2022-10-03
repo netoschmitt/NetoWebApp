@@ -13,9 +13,9 @@ namespace NetoWebApp.Pages.ClienteCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly NetoWebApp.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EditModel(NetoWebApp.Data.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -25,12 +25,12 @@ namespace NetoWebApp.Pages.ClienteCRUD
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Cliente == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
 
-            var cliente =  await _context.Cliente.FirstOrDefaultAsync(m => m.IdCliente == id);
+            var cliente =  await _context.Clientes.FirstOrDefaultAsync(m => m.IdCliente == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace NetoWebApp.Pages.ClienteCRUD
 
         private bool ClienteExists(int id)
         {
-          return _context.Cliente.Any(e => e.IdCliente == id);
+          return _context.Clientes.Any(e => e.IdCliente == id);
         }
     }
 }

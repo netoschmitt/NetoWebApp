@@ -24,12 +24,12 @@ namespace NetoWebApp.Pages.ClienteCRUD
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Cliente == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente.FirstOrDefaultAsync(m => m.IdCliente == id);
+            var cliente = await _context.Clientes.FirstOrDefaultAsync(m => m.IdCliente == id);
 
             if (cliente == null)
             {
@@ -44,16 +44,16 @@ namespace NetoWebApp.Pages.ClienteCRUD
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Cliente == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
-            var cliente = await _context.Cliente.FindAsync(id);
+            var cliente = await _context.Clientes.FindAsync(id);
 
             if (cliente != null)
             {
                 Cliente = cliente;
-                _context.Cliente.Remove(Cliente);
+                _context.Clientes.Remove(Cliente);
                 await _context.SaveChangesAsync();
             }
 

@@ -25,12 +25,12 @@ namespace NetoWebApp.Pages.ProdutoCRUD
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Produto == null)
+            if (id == null || _context.Produtos == null)
             {
                 return NotFound();
             }
 
-            var produto =  await _context.Produto.FirstOrDefaultAsync(m => m.IdProduto == id);
+            var produto =  await _context.Produtos.FirstOrDefaultAsync(m => m.IdProduto == id);
             if (produto == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace NetoWebApp.Pages.ProdutoCRUD
 
         private bool ProdutoExists(int id)
         {
-          return _context.Produto.Any(e => e.IdProduto == id);
+          return _context.Produtos.Any(e => e.IdProduto == id);
         }
     }
 }

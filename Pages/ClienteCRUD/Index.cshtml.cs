@@ -12,9 +12,9 @@ namespace NetoWebApp.Pages.ClienteCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly NetoWebApp.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public IndexModel(NetoWebApp.Data.ApplicationDbContext context)
+        public IndexModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -23,9 +23,9 @@ namespace NetoWebApp.Pages.ClienteCRUD
 
         public async Task OnGetAsync()
         {
-            if (_context.Cliente != null)
+            if (_context.Clientes != null)
             {
-                Cliente = await _context.Cliente.ToListAsync();
+                Cliente = await _context.Clientes.ToListAsync();
             }
         }
     }
